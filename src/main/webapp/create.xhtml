@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>新規登録</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h1>新規登録</h1>
+        <h:form>
+            <h:panelGrid columns="3">
+<!--                id:<h:inputText id ="id" value="#{bb.staffId}"/>
+                <h:message for="id" errorClass="error"/>-->
+                名前：<h:inputText id ="name" value="#{bb.name}"/>
+                <h:message for="name" errorClass="error"/>
+                メール：<h:inputText id ="email" value="#{bb.email}"/>
+                <h:message for="email" errorClass="error"/>
+                パスワード：<h:inputSecret id ="password" value="#{bb.password}"/>
+                <h:message for="password" errorClass="error"/>
+                確認用パスワード：<h:inputSecret id ="confirmedPassword" value="#{bb.confirmedPassword}"/>
+                <h:message for="confirmedPassword" errorClass="error"/>
+                権限：<h:selectOneMenu value="#{bb.authorityId}" required="true" styleClass="sel">
+                    <f:selectItem itemLabel="--選択--" noSelectionOption="true" />
+                    <f:selectItems value="#{bb.authorities}"/>
+                </h:selectOneMenu>
+            </h:panelGrid>
+            <br/>
+            <h:commandButton value="新規登録" action="#{bb.next()}"/>
+        </h:form>
+        <h:link outcome="index.xhtml">戻る</h:link>
+    </h:body>
+</html>

@@ -1,0 +1,7 @@
+drop table if exists bbs_context cascade;
+
+create table bbs_context(
+    id serial primary key,
+    bbs_id Integer not null,
+    context character varying(1024) not null
+);

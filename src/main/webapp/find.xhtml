@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      >
+    <h:head>
+        <title>検索</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h1>検索</h1>
+        <h:form>
+            <h:panelGrid columns="2">
+                ＩＤ：<h:inputText value="#{bb.staffId}"/>
+                名前：<h:outputText value="#{bb.name}"/>
+                メール：<h:outputText value="#{bb.email}"/>
+                権限：<c:if test="#{bb.authorityId == 1}">エンジニア</c:if>
+                <c:if test="#{bb.authorityId == 2}">管理者</c:if>
+            </h:panelGrid>
+            <h:panelGrid columns="3">
+                <h:commandButton value="検索" action="#{bb.find()}"/>
+                <h:commandButton value="削除" action="#{bb.clear()}">
+                    <f:ajax render="@all"/>
+                </h:commandButton>
+            </h:panelGrid>
+        </h:form>
+        <h:link outcome="index.xhtml">戻る</h:link>
+    </h:body>
+</html>

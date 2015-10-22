@@ -1,0 +1,7 @@
+drop table if exists bbs cascade;
+
+create table bbs(
+    id serial primary key,
+    title character varying(32) not null
+    
+);

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>BBS</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" type="text/css" href="/webapp/css/style.css" />
+    </h:head>
+    <h:body>
+        <h1>BBS</h1>
+        <h:form>
+            <h:panelGrid columns="3">
+                タイトル：<h:inputText id="title" value="#{bbsBb.title}"/>
+                <h:message for="title" errorClass="error"/>
+
+                内容：<h:inputTextarea cols="35" rows="10" id="context" value="#{bbsBb.context}"/>
+                <h:message for="context" errorClass="error"/>
+                <h:commandButton value="新規スレッド作成" action="#{bbsBb.create()}"/>
+            </h:panelGrid>
+        
+        <h:dataTable value="#{bbsBb.all}" var="bbs">
+            <h:column>#{bbs}</h:column>
+            <h:column>#{bbs.id}</h:column>
+            <h:column>
+                <h:commandLink value="#{bbs.title}" action="#{bbsBb.next(bbs)}">
+                    <f:ajax render="@all"/>
+                </h:commandLink>
+            </h:column>
+        </h:dataTable>
+            </h:form>
+    </h:body>
+</html>

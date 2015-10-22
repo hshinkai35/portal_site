@@ -1,0 +1,19 @@
+drop table if exists employees cascade;
+
+create table employees (
+	staff_id serial primary key,
+	name character varying(16) not null,
+	email character varying(100) not null unique,
+	authority_id Integer not null,
+	password character varying(32)
+);
+
+
+
+
+
+
+
+
+
+
